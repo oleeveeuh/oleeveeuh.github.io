@@ -111,6 +111,10 @@ storyRail.addEventListener("keydown", event => {
   updateStoryRailProgress();
 });
 window.addEventListener("resize", () => { updateStoryRailPosition(); updateStoryRailProgress(); });
-document.querySelector(".contact-trigger").addEventListener("click", () => contactDialog.showModal());
+const contactTriggers = document.querySelectorAll(".contact-trigger");
+contactTriggers.forEach(trigger => trigger.addEventListener("click", () => contactDialog.showModal()));
 contactDialog.addEventListener("click", event => { if (event.target === contactDialog || event.target.closest(".close-contact")) contactDialog.close(); });
+const resumeDialog = document.querySelector("#resume-dialog");
+document.querySelectorAll(".resume-trigger").forEach(trigger => trigger.addEventListener("click", () => resumeDialog.showModal()));
+resumeDialog.addEventListener("click", event => { if (event.target === resumeDialog || event.target.closest(".close-resume")) resumeDialog.close(); });
 renderGallery();
