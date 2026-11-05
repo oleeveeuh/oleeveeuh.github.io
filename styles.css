@@ -44,3 +44,12 @@ h1,.section-heading h2,.about-section h2,.dialog-summary h2,.print-caption h3{fo
 .hero-art{inset:0 0 -180px;overflow:visible;place-items:start end}
 .hero-art img{width:auto;height:clamp(560px,52vw,680px);max-width:none;object-fit:contain;object-position:center;position:absolute;top:30px;left:58%;right:auto;transform:translateX(-100%);opacity:.72}
 @media(max-width:760px){.intro{z-index:2}.hero-art{inset:0 0 -30px}.hero-art img{height:clamp(510px,112vw,600px);top:65px;left:auto;right:50%;transform:translateX(50%);opacity:.62}.intro-copy{background:rgba(245,241,232,.48)}}
+
+/* Blog-flow story (projects with `story` blocks) */
+.story-flow{max-width:700px}
+.story-flow p{font:14px/1.75 var(--sans);color:#59594f;margin:14px 0 0}
+.story-kicker{font:9px var(--mono)!important;letter-spacing:.13em;color:var(--red)!important;text-transform:uppercase;margin:30px 0 0!important}
+.story-title{font:400 22px/1.15 var(--sans);letter-spacing:-.02em;color:var(--ink);margin:6px 0 0}
+.story-figure{margin:18px 0 0;background:var(--white);border:1px solid var(--line);padding:10px;box-shadow:0 4px 13px rgba(59,49,34,.08)}
+.story-figure img{width:100%;display:block}
+.story-figure figcaption{font:10px/1.6 var(--mono);color:var(--muted);margin-top:8px}

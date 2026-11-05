@@ -51,9 +51,17 @@ function openProject(project) {
   const n = String(projects.indexOf(project) + 1).padStart(2, "0");
   document.querySelector("#dialog-number").textContent = `${n} / ${String(projects.length).padStart(2, "0")}`;
   const visuals = project.visuals?.length ? `<div class="visual-grid">${project.visuals.map(v => `<figure><div class="visual-frame">${artSVG(v.type, true)}</div><figcaption class="visual-caption">${esc(v.caption || "Project visual")}</figcaption></figure>`).join("")}</div>` : `<div class="note-placeholder">Add charts, diagrams, screenshots, or links to artifacts here.</div>`;
-  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p><div class="tech-list">${(project.technologies || []).map(tech => `<span class="tech-chip"><span aria-hidden="true">${esc(techMark(tech))}</span>${esc(tech)}</span>`).join("")}</div><div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div></section>
+  // A `story` project reads in blog flow: chapter headers, paragraphs, and
+  // figures placed where they belong, instead of text-then-visuals blocks.
+  const storyBlocks = project.story?.length ? `<section class="dialog-block"><h3>field notes — the full story</h3><div class="story-flow">${project.story.map(block => {
+    if (block.k) return `<p class="story-kicker">${esc(block.k)}</p><h4 class="story-title">${esc(block.t || "")}</h4>`;
+    if (block.img) return `<figure class="story-figure"><img src="${esc(block.img)}" alt="${esc(block.alt || "")}" loading="lazy"><figcaption>${esc(block.caption || "")}</figcaption></figure>`;
+    return `<p>${esc(block.p || "")}</p>`;
+  }).join("")}</div></section>` : `
   <section class="dialog-block"><h3>The question &amp; approach</h3><p>${esc(project.narration || project.subtitle)}</p></section>
-  <section class="dialog-block"><h3>Visual notes</h3>${visuals}</section>
+  <section class="dialog-block"><h3>Visual notes</h3>${visuals}</section>`;
+  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p><div class="tech-list">${(project.technologies || []).map(tech => `<span class="tech-chip"><span aria-hidden="true">${esc(techMark(tech))}</span>${esc(tech)}</span>`).join("")}</div><div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div></section>
+  ${storyBlocks}
   <section class="dialog-block"><h3>Takeaway</h3><p>${esc(project.result || "Add what you learned, what changed, and what you would explore next.")}</p></section>
   <button class="dialog-close-bottom close-dialog" type="button">Close this note ↑</button>`;
   dialog.showModal();
