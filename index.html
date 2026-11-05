@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="description" content="Selected work in AI research, data science, and machine learning.">
+  <title>olivia — field notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="projects.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="olivia, home">olivia<span>·</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#work">Selected work</a>
+      <a href="#about">About</a>
+      <a href="https://oleeveeuh.github.io/retailPRED/" target="_blank" rel="noopener noreferrer">Live models <span aria-hidden="true">↗</span></a>
+      <button class="contact-trigger" type="button">Contact <span aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> FIELD NOTES · 2026</p>
+        <h1 id="intro-title">Making sense<br>of <em>what’s next.</em></h1>
+        <p class="intro-text">I’m Olivia — a data scientist drawn to questions where careful evaluation meets useful machine learning: forecasts you can audit, gates that refuse to serve what hasn’t earned it.</p>
+        <div class="intro-actions">
+          <a class="text-link" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#about">More about me <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/red-string-birds-portrait.png" alt="two hand-drawn birds in flight, wrapped together by a curling red string">
+        <span class="art-caption">a thread between ideas</span>
+      </div>
+      <span class="intro-index">01</span>
+    </section>
+
+    <section class="work-section" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">A FEW THINGS I’VE BEEN WORKING ON</p><h2 id="work-title">Selected work</h2></div>
+        <p class="section-note">Different questions, connected by curiosity.</p>
+      </div>
+      <div class="filter-row">
+        <p class="filter-label">Browse by focus</p>
+        <div class="filters" role="group" aria-label="Filter projects by focus">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All notes <span class="filter-count" data-count="all"></span></button>
+          <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">AI research &amp; agents <span class="filter-count" data-count="ai"></span></button>
+          <button class="filter-button" type="button" data-filter="data" aria-pressed="false">Data science <span class="filter-count" data-count="data"></span></button>
+          <button class="filter-button" type="button" data-filter="ml" aria-pressed="false">Machine learning <span class="filter-count" data-count="ml"></span></button>
+        </div>
+      </div>
+      <p class="results-status" aria-live="polite"></p>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-mark" aria-hidden="true"><span>✳</span></div>
+      <div><p class="eyebrow">A NOTE ABOUT HOW I WORK</p><h2>Curious by nature.<br><em>Careful by design.</em></h2></div>
+      <div class="about-copy">
+        <p>I like problems where the evaluation is the hard part: release-lagged data, revised ground truth, hierarchies that have to add up. My favorite tool is a predeclared gate — decide what “better” means before you look, then let the numbers argue.</p>
+        <p>Currently: forecasting retail demand across a governed Databricks pipeline, measuring what a foundation model can and can’t do, and writing down every claim a run is — and isn’t — allowed to make.</p>
+        <a class="text-link resume-link" href="resume.pdf" download>Download my resume <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="wordmark" href="#top">olivia<span>·</span></a><p>Made with care, and a little red thread.</p><a class="back-top" href="#top">Back to top ↑</a></footer>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-topbar"><span class="dialog-kicker">FIELD NOTE <span id="dialog-number"></span></span><button class="icon-button close-dialog" type="button" aria-label="Close project details">×</button></div>
+    <div class="dialog-content" id="dialog-content"></div>
+    <div class="story-rail" id="story-rail" role="slider" tabindex="0" aria-label="scroll through this project" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="rail-thread" aria-hidden="true"></span>
+      <svg class="rail-bird" viewBox="0 0 48 36" aria-hidden="true"><path d="M3 22c7-13 20-18 30-12 5 3 8 8 9 14-7-4-13-4-19 0-6 4-11 8-18 7 2-3 4-6 5-9-3 1-5 1-7 0Z"/><path class="rail-wing" d="M18 20c6-8 13-9 19-6-6 1-10 5-14 10"/><circle cx="34" cy="14" r="1.2"/><path class="rail-beak" d="m41 15 7 2-6 2Z"/></svg>
+    </div>
+  </dialog>
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="dialog-topbar"><span class="dialog-kicker">A NOTE FROM ME</span><button class="icon-button close-contact" type="button" aria-label="Close contact details">×</button></div>
+    <div class="contact-content">
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h2 id="contact-title">Let’s talk.</h2>
+      <p class="contact-note">Add a short note about the kinds of conversations you welcome or when you’re available.</p>
+      <dl class="contact-details">
+        
+        <div><dt>EMAIL</dt><dd><a href="https://github.com/oleeveeuh" target="_blank" rel="noopener noreferrer">github.com/oleeveeuh</a></dd></div>
+      </dl>
+    </div>
+  </dialog>
+</body>
+</html>
