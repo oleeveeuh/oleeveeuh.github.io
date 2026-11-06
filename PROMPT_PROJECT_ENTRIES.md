@@ -159,12 +159,14 @@ arrows), NOT on data-chart chrome:
   green background `#e4e4d7` (the `.project-art` color) — the figure's
   facecolor IS the background, so the preview fills the card
   edge-to-edge with no white letterbox.
-- **Fonts**: title and labels in IBM Plex Mono (the site's mono voice —
-  the same face as the "EXAMPLE PROJECT" eyebrows). The TTFs are vendored
-  at `~/retailPRED-satellite/scripts/fonts/` (Regular/Medium/Bold + OFL)
-  and registered with `font_manager.fontManager.addfont(...)`; IBM Plex
-  Mono is NOT system-installed. Body/notes use Source Sans 3 or the
-  system sans.
+- **Fonts**: ALL figure text in Source Sans 3 — the site's sans voice,
+  the same face as the placeholder-diagram text and body copy. The
+  variable TTF is vendored at
+  `~/retailPRED-satellite/scripts/fonts/SourceSans3[wght].ttf` (+ OFL)
+  and registered with `font_manager.fontManager.addfont(...)`; neither
+  Source Sans 3 nor IBM Plex Mono is system-installed, and mono was
+  rejected for figures (owner, 2026-11-06) — it doesn't match the
+  placeholder text style.
 - **Canvas**: render at exactly 2× the card art box ≈ 642×320 px
   (aspect 2.0). Type at 10–16pt then stays legible when the card shows it
   at ~330 px. Save with `bbox_inches="tight", pad_inches=0.12` so nothing
