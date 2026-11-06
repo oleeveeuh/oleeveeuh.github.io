@@ -10,8 +10,8 @@ window.portfolioProjects = [
       { label: "live showcase", href: "https://oleeveeuh.github.io/retailPRED/" },
       { label: "research satellite", href: "https://github.com/oleeveeuh/retailPRED-satellite" },
     ],
-    previewImage: "assets/retailpred-research-windows.png",
-    previewAlt: "field-notes chart of mean-category WAPE by evaluation window: theta beats seasonal naive on every window, the regime-switch policy appears on the report window only",
+    previewImage: "assets/retailpred-method-schematic.png",
+    previewAlt: "schematic of vintage-safe backtesting: expanding training windows for successive forecast origins, rose forecast fans after each origin, dashed holdout rows below, and the policy classifier choosing between naive and theta",
     technologies: ["Python", "LightGBM", "Databricks", "Delta Lake", "dbt", "FastAPI", "Tableau"],
     technologyGroups: [
       { label: "DATA SCIENCE", skills: ["Python", "pandas", "NumPy", "SciPy", "statsmodels", "Matplotlib", "ALFRED vintage data (FRED)", "Tableau"] },
@@ -26,6 +26,7 @@ window.portfolioProjects = [
       { k: "chapter 01 · 2026-11-04", t: "the gate that said no" },
       { p: "On revised history, the global LightGBM looked genuinely good: 4.49% mean-category WAPE against the seasonal naive's 6.35%, better in all 11 Census retail categories. That result earned it a shot at the real thing. The vintage gate had been written before the measurement, in the style I want to keep: fix the criteria first, then let the data answer." },
       { p: "The gate rebuilt every training set from 106 real ALFRED vintages — only what was publishable at each forecast origin — and scored 1,408 folds. Real time flipped the result: 8.49% vs the naive's 8.16%, with LightGBM improving just 4 of 11 categories. It failed on all three predeclared criteria, and the serving decision stayed fail-closed. No champion, no hand-waving — the pipeline kept serving nothing, which is what an honest gate is for." },
+      { img: "assets/retailpred-method-schematic.png", caption: "how the backtest worked: every forecast origin retrains on every vintage published at or before it — no future data — then forecasts 1, 3, 6, and 12 months out. the 24 solid rows are the exploration origins; the dashed rows are the holdout, scored exactly once and never re-opened. the policy layer then reads point-in-time features and picks naive or theta per category and origin.", alt: "schematic of expanding training windows for each forecast origin, rose forecast fans after each origin, dashed holdout rows below, and the policy classifier choosing between naive and theta method chips" },
       { k: "chapter 02 · satellite, phase 1", t: "where the failure lives" },
       { p: "First, reproduction: the satellite re-ran the failed gate with pinned versions and got the naive back to the digit — max diff 0.0. Nothing was wrong with the platform. The failure belonged to the model." },
       { p: "The decomposition that followed changed how I read every metric in this project. Pooled across folds (volume-weighted), the LightGBM actually beat naive even in real time — 5.87% vs 6.54% on exploration origins. The gate metric weights categories equally, and the model lost exactly there: it won big, quiet categories and lost small, volatile ones. By horizon, it won h=1 and lost h=12 badly — the recursive rollout feeds its own drift back eleven times, and clothing degrades monotonically from +0.6pp to −8.5pp. By regime, every point of advantage came from the pandemic disruption. And the category regressions ranked by revision magnitude (Spearman −0.755): loudly-revised categories were where it bled. Training staleness, the first suspect, measured constant and was ruled out." },
