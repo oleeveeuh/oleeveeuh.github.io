@@ -159,14 +159,12 @@ arrows), NOT on data-chart chrome:
   green background `#e4e4d7` (the `.project-art` color) — the figure's
   facecolor IS the background, so the preview fills the card
   edge-to-edge with no white letterbox.
-- **Fonts**: ALL figure text in Source Sans 3 — the site's sans voice,
-  the same face as the placeholder-diagram text and body copy. The
-  variable TTF is vendored at
-  `~/retailPRED-satellite/scripts/fonts/SourceSans3[wght].ttf` (+ OFL)
-  and registered with `font_manager.fontManager.addfont(...)`; neither
-  Source Sans 3 nor IBM Plex Mono is system-installed, and mono was
-  rejected for figures (owner, 2026-11-06) — it doesn't match the
-  placeholder text style.
+- **Fonts**: ALL figure text in the plain system sans —
+  `plt.rcParams["font.sans-serif"] = ["Helvetica Neue", "Helvetica",
+  "Arial", "DejaVu Sans"]` — because the placeholder diagrams label in
+  generic `sans-serif`, which macOS renders as Helvetica. No webfonts,
+  no vendored TTFs. (Rejected by owner: IBM Plex Mono — didn't match the
+  placeholder text style; Source Sans 3 webfont — "not even close".)
 - **Canvas**: render at exactly 2× the card art box ≈ 642×320 px
   (aspect 2.0). Type at 10–16pt then stays legible when the card shows it
   at ~330 px. Save with `bbox_inches="tight", pad_inches=0.12` so nothing
