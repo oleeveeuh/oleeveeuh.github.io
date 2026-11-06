@@ -109,12 +109,32 @@ with their measured outcome and marked "(evaluated)" in skill tags.
    never a stock image. If a project has no real measured data, it gets NO
    figures: keep its `visuals` placeholder SVGs and skip `previewImage`.
 2. Apply the fieldnotes theme so cards and dialogs read as one system —
-   surface `#fbf9f4`, ink `#25251f`, ink2 `#52514e`, muted `#77776c`,
-   grid `#d8d1c4`, and a small validated categorical set for model/series
-   identity (retailpred uses naive `#343330`, lightgbm `#a38a1c`,
-   theta `#a43b36`, policy `#0d5a8a`). See
-   `~/retailPRED-satellite/scripts/research_figures.py` for the reference
-   implementation of the theme (rcParams block + palette dict).
+   surface `#fbf9f4` / paper `#f5f1e8`, ink `#25251f`, sage `#89927a`,
+   crimson accent (`#a43b36`), mono labels (`--mono: "IBM Plex Mono"`),
+   lowercase everything (body has `text-transform: lowercase`). See
+   `~/retailPRED-satellite/scripts/research_figures.py` (`--theme
+   fieldnotes`) for the reference implementation (rcParams block +
+   palette dict).
+
+   **Accent colors for figures (use when more than 2 colors are needed).**
+   Two-color figures use the theme pair: sage `#89927a` + muted red
+   `#a43b36`. Four-series figures (e.g. all four MRTS models) use, in
+   grouped-bar order naive | policy | theta | LightGBM:
+
+   | identity | hex | note |
+   |---|---|---|
+   | naive (neutral baseline) | `#1E342E` | sumi green |
+   | policy | `#89927a` | sage (site accent) |
+   | theta | `#482728` | muted wine |
+   | LightGBM | `#d4708c` | sakura rose |
+
+   The bar order is part of the design: the two deep tones are separated
+   by sage and rose, which keeps every adjacent pair distinguishable
+   (validated CVD 31.9 / normal 33.7 on cream). Never place the rose next
+   to the wine or the crimson, and never introduce a fifth identity hue —
+   fold extras into labels instead. Chrome tokens (not identity): grid
+   `#d8d1c4`, muted `#77776c`, ink2 `#52514e`, diluted crimson `#b86a62`
+   for dashed half-way references.
 3. Export at 2× for crispness (~2200 px wide), save to `assets/<projectid>-<slug>.png`,
    and verify the file is committed — figures are static assets, deployed with the site.
 4. Captions in the dialog carry the numbers and the reading
