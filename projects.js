@@ -5,6 +5,8 @@ window.portfolioProjects = [
   {
     id: "retailpred", title: "retailPRED — forecasting, with receipts", subtitle: "A demand-forecasting platform that refused to serve its own model.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
+    previewImage: "assets/retailpred-research-windows.png",
+    previewAlt: "field-notes chart of mean-category WAPE by evaluation window: theta beats seasonal naive on every window, the regime-switch policy appears on the report window only",
     technologies: ["Python", "LightGBM", "Databricks", "Delta Lake", "dbt", "FastAPI", "Tableau"],
     technologyGroups: [
       { label: "DATA SCIENCE", skills: ["Python", "pandas", "NumPy", "SciPy", "statsmodels", "Matplotlib", "ALFRED vintage data (FRED)", "Tableau"] },
