@@ -135,18 +135,53 @@ with their measured outcome and marked "(evaluated)" in skill tags.
    fold extras into labels instead. Chrome tokens (not identity): grid
    `#d8d1c4`, muted `#77776c`, ink2 `#52514e`, diluted crimson `#b86a62`
    for dashed half-way references.
-3. Export at 2× for crispness (~2200 px wide), save to `assets/<projectid>-<slug>.png`,
-   and verify the file is committed — figures are static assets, deployed with the site.
+3. Export at 2× (`--scale 2`, ~2200 px wide for results charts), save to
+   `assets/<projectid>-<slug>.png`, and verify the file is committed —
+   figures are static assets, deployed with the site.
 4. Captions in the dialog carry the numbers and the reading
    ("lower is better", "positive = policy better"), plus sample sizes when relevant.
-5. Choose ONE figure per project as `previewImage` by three rules, in order:
-   it states the project's thesis at a glance; it is legible at 330×160
-   (grouped bars survive; dense line charts with small annotations do not);
-   it survives `object-fit: contain` on the cream surface (the preview style
-   is `.project-preview{object-fit:contain;background:var(--white)}` — the
-   figure's own background must be the same cream so there are no letterbox
-   bands). After wiring it in, screenshot the card locally (see verification)
-   and check the figure's own title does not collide with any overlay.
+
+## Preview figures — method, not results
+
+The gallery card is the project's hook: it must show **how the project
+works**, not how it scored. Results charts (WAPE bars, sweeps,
+reliability diagrams) belong in the dialog story; the card gets a
+**method schematic** — the retailpred reference is
+`~/retailPRED-satellite/scripts/method_schematic.py` →
+`assets/retailpred-method-schematic.png` (the expanding training
+staircase + forecast fans + holdout rows, with a classifier-flow band).
+
+Style rules — model the drawing on the site's own placeholder SVG
+vocabulary (`artSVG`: flat filled boxes, dashed connectors, plain
+arrows), NOT on data-chart chrome:
+
+- **No axes, no grid, no tick chrome.** Flat shapes on the card's light
+  green background `#e4e4d7` (the `.project-art` color) — the figure's
+  facecolor IS the background, so the preview fills the card
+  edge-to-edge with no white letterbox.
+- **Fonts**: title and labels in IBM Plex Mono (the site's mono voice —
+  the same face as the "EXAMPLE PROJECT" eyebrows). The TTFs are vendored
+  at `~/retailPRED-satellite/scripts/fonts/` (Regular/Medium/Bold + OFL)
+  and registered with `font_manager.fontManager.addfont(...)`; IBM Plex
+  Mono is NOT system-installed. Body/notes use Source Sans 3 or the
+  system sans.
+- **Canvas**: render at exactly 2× the card art box ≈ 642×320 px
+  (aspect 2.0). Type at 10–16pt then stays legible when the card shows it
+  at ~330 px. Save with `bbox_inches="tight", pad_inches=0.12` so nothing
+  clips; the card's `object-fit: cover` then crops only padding.
+- **Bar/flow order is part of the design** — keep companion hues apart
+  (never rose beside wine or crimson) and put the deepest tones at the
+  ends.
+- Everything is direct-labeled; the schematic may use real names, dates,
+  and protocol values from the frozen artifacts, but draws no metrics.
+
+Selection rules, in order: (1) it communicates the method in one glance;
+(2) it is legible at 330×160 (10pt+ type on a 642px canvas survives;
+dense data-charts do not); (3) it fills edge-to-edge on the light green
+(the preview style is `.project-preview{width:100%;height:100%;
+object-fit:cover;display:block}` — no background, no letterbox). After
+wiring it in, screenshot the card locally (see verification) and check
+that the figure's own title does not collide with any overlay.
 
 ## Skill tags and groups
 
@@ -185,8 +220,9 @@ with their measured outcome and marked "(evaluated)" in skill tags.
    generating figures (figures serve chapters, not the reverse).
 2. Generate themed figures in the project's repo (rule: generation lives
    where the data lives), export 2× PNGs, copy into `assets/`.
-3. Write the entry in `projects.js` following the schema and story rules;
-   pick `previewImage`; add `links` (repository first).
+3. Build the method schematic first (pipeline §"Preview figures"), then
+   write the entry in `projects.js` following the schema and story rules;
+   set `previewImage` to the schematic; add `links` (repository first).
 4. Extend `techMark()` for any new glyph-worthy skill.
 5. `node --check app.js && node --check projects.js`.
 6. Serve locally (`python3 -m http.server 8123`), then drive it with
@@ -205,8 +241,11 @@ with their measured outcome and marked "(evaluated)" in skill tags.
   poll, don't assume failure.
 - `grep -c` returning 0 exits nonzero and breaks `&&` chains — use `;` or
   an `until` loop when checking live content.
-- `object-fit: cover` crops chart titles; `contain` on a matching cream
-  background is the house style for previews.
+- `object-fit: cover` crops whatever falls outside the box — so previews
+  must be rendered at the exact art-box aspect (≈642×320 at 2×) AND saved
+  with `bbox_inches="tight", pad_inches=0.12`. A fixed-canvas save at a
+  mismatched aspect, or `contain` with a mismatched background, shows
+  white boxes/clipped titles — both were real bugs (2026-11-06).
 - The dialog is a `<dialog>` with its own scroll — screenshot the element,
   not the page, and set `dialog.scrollTop` for deep sections; wait ~2.5s
   after scrolling for lazy Tableau embeds.
