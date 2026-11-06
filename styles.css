@@ -53,3 +53,6 @@ h1,.section-heading h2,.about-section h2,.dialog-summary h2,.print-caption h3{fo
 .story-figure{margin:18px 0 0;background:var(--white);border:1px solid var(--line);padding:10px;box-shadow:0 4px 13px rgba(59,49,34,.08)}
 .story-figure img{width:100%;display:block}
 .story-figure figcaption{font:10px/1.6 var(--mono);color:var(--muted);margin-top:8px}
+.tech-group{margin-bottom:12px}
+.tech-group-label{font:9px var(--mono);letter-spacing:.13em;color:var(--sage);margin:0 0 6px}
+.story-embed{border:1px solid var(--line);background:var(--white);padding:6px}

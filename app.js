@@ -13,13 +13,21 @@ const techMark = tech => {
   const name = tech.toLowerCase();
   if (name.includes("python")) return "Py";
   if (name.includes("pandas")) return "pd";
+  if (name.includes("numpy")) return "np";
+  if (name.includes("scipy")) return "Σ";
+  if (name.includes("statsmodels")) return "sm";
   if (name.includes("sql")) return "▤";
   if (name.includes("jupyter")) return "◉";
   if (name.includes("scikit")) return "✳";
+  if (name.includes("lightgbm")) return "lgb";
+  if (name.includes("mlflow")) return "mlf";
+  if (name.includes("databricks")) return "dbx";
+  if (name.includes("delta")) return "Δ";
   if (name.includes("llm") || name.includes("agent")) return "◎";
   if (name.includes("matplotlib")) return "∿";
   return "⌘";
 };
+const techChip = tech => `<span class="tech-chip"><span aria-hidden="true">${esc(techMark(tech))}</span>${esc(tech)}</span>`;
 
 function artSVG(type, detailed = false) {
   const view = detailed ? 'viewBox="0 0 640 300"' : 'viewBox="0 0 320 180"';
@@ -61,7 +69,11 @@ function openProject(project) {
   }).join("")}</div></section>` : `
   <section class="dialog-block"><h3>The question &amp; approach</h3><p>${esc(project.narration || project.subtitle)}</p></section>
   <section class="dialog-block"><h3>Visual notes</h3>${visuals}</section>`;
-  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p><div class="tech-list">${(project.technologies || []).map(tech => `<span class="tech-chip"><span aria-hidden="true">${esc(techMark(tech))}</span>${esc(tech)}</span>`).join("")}</div><div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div></section>
+  const techMarkup = project.technologyGroups?.length
+    ? project.technologyGroups.map(group => `<div class="tech-group"><p class="tech-group-label">${esc(group.label)}</p><div class="tech-list">${(group.skills || []).map(techChip).join("")}</div></div>`).join("")
+    : `<div class="tech-list">${(project.technologies || []).map(techChip).join("")}</div>`;
+  const rolesMarkup = project.technologyGroups?.length ? "" : `<div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div>`;
+  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p>${techMarkup}${rolesMarkup}</section>
   ${storyBlocks}
   <section class="dialog-block"><h3>Takeaway</h3><p>${esc(project.result || "Add what you learned, what changed, and what you would explore next.")}</p></section>
   <button class="dialog-close-bottom close-dialog" type="button">Close this note ↑</button>`;

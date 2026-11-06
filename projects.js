@@ -5,9 +5,17 @@ window.portfolioProjects = [
   {
     id: "retailpred", title: "retailPRED — forecasting, with receipts", subtitle: "A demand-forecasting platform that refused to serve its own model.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
-    technologies: ["Python", "LightGBM", "Databricks", "Delta Lake", "dbt", "FastAPI", "Tableau"], year: "FIELD NOTE · 2026",
+    technologies: ["Python", "LightGBM", "Databricks", "Delta Lake", "dbt", "FastAPI", "Tableau"],
+    technologyGroups: [
+      { label: "DATA SCIENCE", skills: ["Python", "pandas", "NumPy", "SciPy", "statsmodels", "Matplotlib", "ALFRED vintage data (FRED)", "Tableau"] },
+      { label: "MACHINE LEARNING", skills: ["LightGBM", "scikit-learn", "theta method (custom NumPy)", "seasonal naive baseline", "isotonic calibration", "origin-block bootstrap", "MLflow", "Chronos-2 & NHITS (evaluated)"] },
+      { label: "MLOPS", skills: ["Databricks", "Delta Lake", "dbt", "FastAPI", "Docker", "GitHub Actions", "Airflow", "GitHub Pages", "Tableau Hyper API"] },
+    ],
+    year: "FIELD NOTE · 2026",
     summary: "A rebuild of an undergraduate GCP + Airflow forecasting project into an evidence-gated platform on Databricks — and the story of how a predeclared promotion gate refused its own champion, a research satellite explained why, and the fix became a regime classifier.",
     story: [
+      { k: "the question · where this started", t: "what was I investigating?" },
+      { p: "The question that started everything sounds simple and turned out to be load-bearing: does a forecasting model that demonstrably wins on revised history still win when it can only see what a real forecaster would have known at decision time? The v1 platform's wins were built on final-revised data. The moment a vintage backtest rebuilt the same comparison on 106 real ALFRED vintages — every training set reconstructed from only the vintages published at each forecast origin — the champion lost to a seasonal naive. Rather than patch the model, I let the question fork into the journey below: locate where the real-time edge dies (forensics), test whether the inputs can be repaired (five predeclared hypotheses), search for a better method outright (theta), spend one holdout on the survivor (criterion 2 failed, and the refusal stood), and finally ask whether a small learned policy can capture the best of both regimes (it beat naive and the blend, and still lost to pure theta). Every chapter after this one is the same question asked one layer deeper — and the answer is different at every layer." },
       { k: "chapter 01 · 2026-11-04", t: "the gate that said no" },
       { p: "On revised history, the global LightGBM looked genuinely good: 4.49% mean-category WAPE against the seasonal naive's 6.35%, better in all 11 Census retail categories. That result earned it a shot at the real thing. The vintage gate had been written before the measurement, in the style I want to keep: fix the criteria first, then let the data answer." },
       { p: "The gate rebuilt every training set from 106 real ALFRED vintages — only what was publishable at each forecast origin — and scored 1,408 folds. Real time flipped the result: 8.49% vs the naive's 8.16%, with LightGBM improving just 4 of 11 categories. It failed on all three predeclared criteria, and the serving decision stayed fail-closed. No champion, no hand-waving — the pipeline kept serving nothing, which is what an honest gate is for." },
