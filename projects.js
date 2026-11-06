@@ -5,6 +5,11 @@ window.portfolioProjects = [
   {
     id: "retailpred", title: "retailPRED — forecasting, with receipts", subtitle: "A demand-forecasting platform that refused to serve its own model.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
+    links: [
+      { label: "github repository", href: "https://github.com/oleeveeuh/retailPRED" },
+      { label: "live showcase", href: "https://oleeveeuh.github.io/retailPRED/" },
+      { label: "research satellite", href: "https://github.com/oleeveeuh/retailPRED-satellite" },
+    ],
     previewImage: "assets/retailpred-research-windows.png",
     previewAlt: "field-notes chart of mean-category WAPE by evaluation window: theta beats seasonal naive on every window, the regime-switch policy appears on the report window only",
     technologies: ["Python", "LightGBM", "Databricks", "Delta Lake", "dbt", "FastAPI", "Tableau"],

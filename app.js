@@ -73,7 +73,8 @@ function openProject(project) {
     ? project.technologyGroups.map(group => `<div class="tech-group"><p class="tech-group-label">${esc(group.label)}</p><div class="tech-list">${(group.skills || []).map(techChip).join("")}</div></div>`).join("")
     : `<div class="tech-list">${(project.technologies || []).map(techChip).join("")}</div>`;
   const rolesMarkup = project.technologyGroups?.length ? "" : `<div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div>`;
-  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p>${techMarkup}${rolesMarkup}</section>
+  const linksMarkup = project.links?.length ? `<div class="dialog-links">${project.links.map(link => `<a href="${esc(link.href)}" target="_blank" rel="noopener noreferrer">${esc(link.label)} <span aria-hidden="true">↗</span></a>`).join("")}</div>` : "";
+  dialogContent.innerHTML = `<section class="dialog-summary"><p class="eyebrow">${esc(project.year || "PROJECT NOTES")}</p><h2 id="dialog-title">${esc(project.title)}</h2><p class="summary-copy">${esc(project.summary || project.subtitle)}</p>${linksMarkup}${techMarkup}${rolesMarkup}</section>
   ${storyBlocks}
   <section class="dialog-block"><h3>Takeaway</h3><p>${esc(project.result || "Add what you learned, what changed, and what you would explore next.")}</p></section>
   <button class="dialog-close-bottom close-dialog" type="button">Close this note ↑</button>`;
