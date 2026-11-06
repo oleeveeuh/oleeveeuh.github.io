@@ -56,6 +56,7 @@ function openProject(project) {
   const storyBlocks = project.story?.length ? `<section class="dialog-block"><h3>field notes — the full story</h3><div class="story-flow">${project.story.map(block => {
     if (block.k) return `<p class="story-kicker">${esc(block.k)}</p><h4 class="story-title">${esc(block.t || "")}</h4>`;
     if (block.img) return `<figure class="story-figure"><img src="${esc(block.img)}" alt="${esc(block.alt || "")}" loading="lazy"><figcaption>${esc(block.caption || "")}</figcaption></figure>`;
+    if (block.embed) return `<figure class="story-figure"><div class="story-embed"><iframe src="https://public.tableau.com/views/${esc(block.embed)}?:embed=y&amp;:showVizHome=no&amp;:tabs=no&amp;:toolbar=yes" title="${esc(block.alt || "Tableau view")}" loading="lazy" style="width:100%;height:420px;border:0"></iframe></div><figcaption>${esc(block.caption || "")}</figcaption></figure>`;
     return `<p>${esc(block.p || "")}</p>`;
   }).join("")}</div></section>` : `
   <section class="dialog-block"><h3>The question &amp; approach</h3><p>${esc(project.narration || project.subtitle)}</p></section>
