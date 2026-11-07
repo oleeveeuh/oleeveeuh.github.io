@@ -132,8 +132,8 @@ window.portfolioProjects = [
       { label: "paper pdf (in this repo)", href: "https://github.com/oleeveeuh/gr-WPI-UMASS-TOD-Prediction/blob/main/results/publication/BIOINFORMATICS_2026_398_CR.pdf" },
       { label: "research archive (as-published pipeline)", href: "https://github.com/oleeveeuh/gr-WPI-UMASS-TOD-Prediction/tree/main/research_archive" },
     ],
-    previewImage: "assets/tod-prediction-poster-method.png",
-    previewAlt: "the \"how autoencoders work\" panel of the reu research poster: an autoencoder structure diagram with input layer, encoded value, and output layer, beside the training-process flow of original data window through adjust-and-repeat to reconstructed data, with encoding and decoding steps between",
+    previewImage: "assets/tod-prediction-paper-ae.png",
+    previewAlt: "figure 4 of the published paper: the autoencoder architecture for windowed gene expression — an hourglass network from a relu 128/64/32 encoder through a tanh encoded value to a relu 32/64/128 decoder, with a green arrow for the incoming window of gene-expression levels, a pink arrow for the reconstructed window, and the compare-and-adjust training loop below",
     technologyGroups: [
       { label: "DATA SCIENCE", skills: ["Python", "pandas", "NumPy", "Matplotlib", "R (tidyverse wrangling)", "GEO GSE71620 donor data", "235-gene circadian panel", "Excel result workbooks (openpyxl)", "find_best_models ranking", "paper-era result figures"] },
       { label: "MACHINE LEARNING", skills: ["scikit-learn", "PyTorch (skorch)", "TensorFlow (CNN variants)", "XGBoost", "autoencoder window encoding", "LSTM · CNN · MLP", "PCA · ICA · KPCA · Isomap", "min-max & log normalisation", "RandomizedSearchCV", "TimeSeriesSplit CV", "16-regressor sweep"] },
