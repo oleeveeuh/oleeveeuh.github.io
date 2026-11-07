@@ -3,7 +3,7 @@
 // inside the dialog: {k, t} chapter headers, {p} paragraphs, {img, caption, alt} figures.
 window.portfolioProjects = [
   {
-    id: "retailpred", title: "retailPRED — forecasting, with receipts", subtitle: "A demand-forecasting platform that refused to serve its own model.",
+    id: "retailpred", title: "retailPRED — demand forecasting that survives real time", subtitle: "A demand-forecasting platform that refused to serve its own model.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/retailPRED" },
