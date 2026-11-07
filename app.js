@@ -18,7 +18,9 @@ const techMark = tech => {
   if (name.includes("statsmodels")) return "sm";
   if (name.includes("sql")) return "▤";
   if (name.includes("jupyter")) return "◉";
+  if (name.includes("scikit-image")) return "ski";
   if (name.includes("scikit")) return "✳";
+  if (name.includes("resnet")) return "rn";
   if (name.includes("lightgbm")) return "lgb";
   if (name.includes("mlflow")) return "mlf";
   if (name.includes("databricks")) return "dbx";
