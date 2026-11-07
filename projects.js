@@ -68,7 +68,7 @@ window.portfolioProjects = [
     result: "The learnable object the evidence supports is a small causal policy — trend strength, volatility, revision churn, lagged performance deciding naive vs theta — whose worst case in a calm gate ties naive and whose upside is the volatile phases where naive loses by 9pp. The general lesson is the industry-relevant one: 'my model won' always deserves the follow-up question — won under what data conditions? The most valuable artifact in the project isn't any model; it's the vintage harness that would have caught the v1 result on day one."
   },
   {
-    id: "pd-drawings", title: "Parkinson's drawing analysis — the split is the finding", subtitle: "Rebuilding a drawing classifier around the unit that was quietly leaking: the participant.",
+    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a multimodal MoE", subtitle: "Rebuilding a drawing classifier around the unit that was quietly leaking: the participant.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis" },
