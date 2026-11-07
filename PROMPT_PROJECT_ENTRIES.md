@@ -159,16 +159,23 @@ arrows), NOT on data-chart chrome:
   green background `#e4e4d7` (the `.project-art` color) — the figure's
   facecolor IS the background, so the preview fills the card
   edge-to-edge with no white letterbox.
-- **Fonts**: ALL figure text in the plain system sans —
-  `plt.rcParams["font.sans-serif"] = ["Helvetica Neue", "Helvetica",
-  "Arial", "DejaVu Sans"]` — because the placeholder diagrams label in
-  generic `sans-serif`, which macOS renders as Helvetica. No webfonts,
-  no vendored TTFs. (Rejected by owner: IBM Plex Mono — didn't match the
-  placeholder text style; Source Sans 3 webfont — "not even close".)
-- **Canvas**: render at exactly 2× the card art box ≈ 642×320 px
-  (aspect 2.0). Type at 10–16pt then stays legible when the card shows it
-  at ~330 px. Save with `bbox_inches="tight", pad_inches=0.12` so nothing
-  clips; the card's `object-fit: cover` then crops only padding.
+- **Fonts (settled 2026-11-06)**: figure text uses the site's loaded
+  fonts — Source Sans 3 for body text, IBM Plex Mono for the caption
+  voice (footnotes, cron lines, annotation eyebrows). Both are installed
+  locally as static TTFs in `~/Library/Fonts` (Source Sans 3 400/600/700;
+  IBM Plex Mono 400/500) — matplotlib silently falls back to DejaVu Sans
+  without them, and macOS Helvetica Neue is a `.ttc` it cannot load, so
+  never first in a stack. The old Helvetica-only rule is superseded: the
+  retailpred figures now render in Source Sans 3/Plex Mono by owner
+  decision. matplotlib has no letter-spacing — headings mimic the site's
+  letter-spaced mono eyebrows with space-joined caps (`" ".join(...)`).
+- **Canvas**: render with `bbox_inches="tight"`, then pad the canvas to
+  the art box's exact aspect (320.7×160 ≈ 2.004) with the surface color —
+  copy the wing-padding save block from
+  `~/retailPRED-satellite/scripts/method_schematic.py`. The wings are
+  invisible (padding color = card background), and `object-fit: cover`
+  becomes a no-op. Type at 10–16pt stays legible when the card shows the
+  figure at ~330 px.
 - **Bar/flow order is part of the design** — keep companion hues apart
   (never rose beside wine or crimson) and put the deepest tones at the
   ends.
@@ -188,6 +195,11 @@ that the figure's own title does not collide with any overlay.
 - Exactly three groups, in this order: `DATA SCIENCE`, `MACHINE LEARNING`,
   `MLOPS`. A skill appears in exactly one group — decide by where the work
   happened, not by resume appeal.
+- A project's **retired legacy stack** gets its own first group with
+  `v1: true` (or the era marker matching its version) — the renderer draws
+  a wine **v1 sticker** next to the label and dashed chips, so retired
+  skills read as history, not current claims. Never mix retired skills
+  into the current groups; see the `retailpred` entry's first group.
 - Truthfulness rules: list only technologies that exist in the project's
   repo or committed results; mark measured-but-rejected approaches with
   "(evaluated)"; frameworks from a legacy era are allowed only with a
