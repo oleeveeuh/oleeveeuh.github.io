@@ -25,6 +25,11 @@ const techMark = tech => {
   if (name.includes("mlflow")) return "mlf";
   if (name.includes("databricks")) return "dbx";
   if (name.includes("delta")) return "Δ";
+  if (name.includes("pytorch")) return "pt";
+  if (name.includes("tensorflow")) return "tf";
+  if (name.includes("xgboost")) return "xgb";
+  if (name.startsWith("r (")) return "R";
+  if (name.includes("github actions")) return "ci";
   if (name.includes("llm") || name.includes("agent")) return "◎";
   if (name.includes("matplotlib")) return "∿";
   return "⌘";
