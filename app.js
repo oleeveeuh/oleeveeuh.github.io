@@ -70,7 +70,9 @@ function openProject(project) {
   <section class="dialog-block"><h3>The question &amp; approach</h3><p>${esc(project.narration || project.subtitle)}</p></section>
   <section class="dialog-block"><h3>Visual notes</h3>${visuals}</section>`;
   const techMarkup = project.technologyGroups?.length
-    ? project.technologyGroups.map(group => `<div class="tech-group"><p class="tech-group-label">${esc(group.label)}</p><div class="tech-list">${(group.skills || []).map(techChip).join("")}</div></div>`).join("")
+    ? project.technologyGroups.map(group => group.v1
+      ? `<div class="tech-group v1"><p class="tech-group-label"><span class="v1-sticker" aria-label="version 1, retired">v1</span>${esc(group.label)}</p><div class="tech-list">${(group.skills || []).map(techChip).join("")}</div></div>`
+      : `<div class="tech-group"><p class="tech-group-label">${esc(group.label)}</p><div class="tech-list">${(group.skills || []).map(techChip).join("")}</div></div>`).join("")
     : `<div class="tech-list">${(project.technologies || []).map(techChip).join("")}</div>`;
   const rolesMarkup = project.technologyGroups?.length ? "" : `<div class="dialog-roles">${project.roleLabels.map(label => `<span>${esc(label)}</span>`).join(" · ")}</div>`;
   const linksMarkup = project.links?.length ? `<div class="dialog-links">${project.links.map(link => `<a href="${esc(link.href)}" target="_blank" rel="noopener noreferrer">${esc(link.label)} <span aria-hidden="true">↗</span></a>`).join("")}</div>` : "";

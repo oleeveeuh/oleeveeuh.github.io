@@ -55,6 +55,11 @@ h1,.section-heading h2,.about-section h2,.dialog-summary h2,.print-caption h3{fo
 .story-figure figcaption{font:10px/1.6 var(--mono);color:var(--muted);margin-top:8px}
 .tech-group{margin-bottom:12px}
 .tech-group-label{font:9px var(--mono);letter-spacing:.13em;color:var(--sage);margin:0 0 6px}
+/* retired v1 stack: wine voice + a small v1 sticker so it reads as history,
+   not current skill claims */
+.tech-group.v1 .tech-group-label{color:var(--red)}
+.tech-group.v1 .tech-chip{background:transparent;border:1px dashed rgba(164,59,54,.55);color:#7d5a52}
+.v1-sticker{display:inline-block;background:var(--red);color:#fbf9f4;font:7px var(--mono);letter-spacing:.1em;border-radius:3px;padding:2px 5px;margin-right:7px;vertical-align:1px;text-transform:uppercase}
 .story-embed{border:1px solid var(--line);background:var(--white);padding:6px}
 .project-preview{width:100%;height:160px;object-fit:cover;display:block}
 /* print/caption are spans in the markup; inline layout turns the whitespace
