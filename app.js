@@ -30,6 +30,15 @@ const techMark = tech => {
   if (name.includes("xgboost")) return "xgb";
   if (name.startsWith("r (")) return "R";
   if (name.includes("github actions")) return "ci";
+  if (name.includes("silver")) return "Ag";
+  if (name.includes("dpo")) return "⇅";
+  if (name.includes("lora")) return "Λ";
+  if (name.includes("qwen")) return "qw";
+  if (name.includes("transformers")) return "hf";
+  if (name.includes("fastapi")) return "fa";
+  if (name.includes("streamlit")) return "st";
+  if (name.includes("duckdb")) return "db";
+  if (name.includes("pytest")) return "✓";
   if (name.includes("llm") || name.includes("agent")) return "◎";
   if (name.includes("matplotlib")) return "∿";
   return "⌘";
