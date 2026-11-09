@@ -71,7 +71,7 @@ window.portfolioProjects = [
     result: "The learnable object the evidence supports is a small causal policy — trend strength, volatility, revision churn, lagged performance deciding naive vs theta — whose downside is bounded by naive (it can always defer to naive — inferred from the rule, not yet measured on a calm gate), and whose upside is the volatile phases, where theta halved naive's error on 2021 targets (7.9% vs 16.8%). The general lesson is the industry-relevant one: 'my model won' always deserves the follow-up question — won under what data conditions? The most valuable artifact in the project isn't any model; it's the vintage harness that would have caught the v1 result on day one."
   },
   {
-    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "Rebuilding a drawing classifier around the unit that was quietly leaking: the participant.",
+    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "102 'samples' that were 28 people, a training set that saw every test patient, and the 9.6-point finding that measures exactly zero.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis" },
@@ -171,7 +171,7 @@ window.portfolioProjects = [
     result: "The takeaway I keep from this one: a good student-research question is one where the data already exists and the obstacle is conceptual — the sinusoid ambiguity is what made \"just regress on expression\" a non-starter, and the window-to-autoencoder bet was small, architectural, and load-bearing: it carried the paper's headline on both regions. One NSF site grant, a student team across four colleges, two advisors, and a pipeline that went from a summer repository through peer review to pp. 704–715. The repository keeps the whole arc frozen where it happened — the as-published code, the result workbooks, the poster, the paper, and, since 2026, the audit and the clean re-run, labelled as what they are.",
   },
   {
-    id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "The 94.3% headline was a prompt grading its own homework — the rebuilt harness makes that structurally impossible.",
+    id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "175 warehouse reviews, six competing prompts, and the one-line rule that retired a self-graded 94.3% — the honest rerun where chain-of-thought finishes last.",
     roles: ["ai", "data", "ml"], roleLabels: ["AGENTIC AI", "DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/ReviewInsightAI" },
