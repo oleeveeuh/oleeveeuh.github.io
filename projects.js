@@ -71,7 +71,7 @@ window.portfolioProjects = [
     result: "The learnable object the evidence supports is a small causal policy — trend strength, volatility, revision churn, lagged performance deciding naive vs theta — whose downside is bounded by naive (it can always defer to naive — inferred from the rule, not yet measured on a calm gate), and whose upside is the volatile phases, where theta halved naive's error on 2021 targets (7.9% vs 16.8%). The general lesson is the industry-relevant one: 'my model won' always deserves the follow-up question — won under what data conditions? The most valuable artifact in the project isn't any model; it's the vintage harness that would have caught the v1 result on day one."
   },
   {
-    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "102 'samples' that were 28 people, a training set that saw every test patient, and the 9.6-point finding that measures exactly zero — the data-leakage rebuild where frozen deep-learning embeddings and a mixture-of-experts both fail to beat logistic regression.",
+    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "102 'samples' that were 28 people — the data-leakage rebuild where deep-learning embeddings and mixture-of-experts both fail to beat logistic regression.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis" },
