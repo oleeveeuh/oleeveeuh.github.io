@@ -3,7 +3,7 @@
 // inside the dialog: {k, t} chapter headers, {p} paragraphs, {img, caption, alt} figures.
 window.portfolioProjects = [
   {
-    id: "retailpred", title: "retailPRED — demand forecasting that survives real time", subtitle: "Champion–challenger gates, point-in-time backtesting, fail-closed serving on Databricks — the +29% champion its own gate refused on 106 ALFRED vintages.",
+    id: "retailpred", title: "retailPRED — demand forecasting that survives real time", subtitle: "Champion–challenger gates, point-in-time backtesting, fail-closed serving on Databricks — 106 vintages, one spent holdout, and the 25-year-old method that beat them all.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/retailPRED" },
