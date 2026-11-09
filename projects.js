@@ -71,7 +71,7 @@ window.portfolioProjects = [
     result: "The learnable object the evidence supports is a small causal policy — trend strength, volatility, revision churn, lagged performance deciding naive vs theta — whose downside is bounded by naive (it can always defer to naive — inferred from the rule, not yet measured on a calm gate), and whose upside is the volatile phases, where theta halved naive's error on 2021 targets (7.9% vs 16.8%). The general lesson is the industry-relevant one: 'my model won' always deserves the follow-up question — won under what data conditions? The most valuable artifact in the project isn't any model; it's the vintage harness that would have caught the v1 result on day one."
   },
   {
-    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts (its two-modality version tested on simulated paired data only)", subtitle: "Rebuilding a drawing classifier around the unit that was quietly leaking: the participant.",
+    id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "Rebuilding a drawing classifier around the unit that was quietly leaking: the participant.",
     roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis" },
@@ -86,7 +86,7 @@ window.portfolioProjects = [
       { label: "MLOPS", skills: ["GitHub Actions CI", "pytest leakage guards", "hashed CNN-feature cache (optional path)", "seed-fixed reproducibility", "JSON artifacts + committed result summaries"] },
     ],
     year: "FIELD NOTE · 2026",
-    summary: "A rebuild of a Parkinson's drawing classifier whose evaluation had quietly leaked — 102 'samples' were 28 people, and every supplied test drawing belonged to a person in training. The fix is the finding: participant-grouped cross-validation (splits that never let one person's drawings span training and test), a measured account of what the leak cost, and honest nulls for deep features, fusion, and mixture-of-experts.",
+    summary: "A rebuild of a Parkinson's drawing classifier whose evaluation had quietly leaked — 102 'samples' were 28 people, and every supplied test drawing belonged to a person in training. The fix is the finding: participant-grouped cross-validation (splits that never let one person's drawings span training and test), a measured account of what the leak cost, and honest nulls for deep features, fusion, and mixture-of-experts — the two-modality variants exercised on simulated paired data, since the two real datasets here share no participants.",
     story: [
       { k: "the question · where this started", t: "can a classifier recognise parkinson's disease from the way a person draws?" },
       { p: "Two public datasets — Kaggle spiral/wave images and UCI tablet recordings — made the question look answerable, and my first pipeline answered it with confidence. The answer didn't survive contact with the filenames: the Kaggle set advertises 102 samples per task, but the filenames encode only 28 people per task, and every drawing in the supplied test set belongs to a person who is also in the supplied training set. Three correlated drawings of one person are not three independent patients — so before any model could be believed, the evaluation itself had to be rebuilt." },
