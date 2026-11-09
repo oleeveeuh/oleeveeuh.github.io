@@ -171,7 +171,7 @@ window.portfolioProjects = [
     result: "The takeaway I keep from this one: a good student-research question is one where the data already exists and the obstacle is conceptual — the sinusoid ambiguity is what made \"just regress on expression\" a non-starter, and the window-to-autoencoder bet was small, architectural, and load-bearing: it carried the paper's headline on both regions. One NSF site grant, a student team across four colleges, two advisors, and a pipeline that went from a summer repository through peer review to pp. 704–715. The repository keeps the whole arc frozen where it happened — the as-published code, the result workbooks, the poster, the paper, and, since 2026, the audit and the clean re-run, labelled as what they are.",
   },
   {
-    id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "175 warehouse reviews, six competing prompts, and the one-line rule that retired a self-graded 94.3% — the honest rerun where chain-of-thought finishes last.",
+    id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "175 reviews, six prompt-engineering variants, and the evaluation rule that retired a self-graded 94.3% — chain-of-thought comes last.",
     roles: ["ai", "data", "ml"], roleLabels: ["AGENTIC AI", "DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/ReviewInsightAI" },
