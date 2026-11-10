@@ -23,6 +23,9 @@ const techMark = tech => {
   if (name.includes("scikit")) return "✳";
   if (name.includes("resnet")) return "rn";
   if (name.includes("lightgbm")) return "lgb";
+  if (name.includes("chronos")) return "c2";
+  if (name.includes("nhits")) return "nh";
+  if (name.includes("neuralforecast")) return "nf";
   if (name.includes("mlflow")) return "mlf";
   if (name.includes("databricks")) return "dbx";
   if (name.includes("delta")) return "Δ";
