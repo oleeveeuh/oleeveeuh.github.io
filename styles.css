@@ -71,3 +71,18 @@ h1,.section-heading h2,.about-section h2,.dialog-summary h2,.print-caption h3{fo
 .dialog-links a{font:11px var(--mono);color:var(--ink);border-bottom:1px solid var(--red);padding-bottom:3px}
 .dialog-links a:hover{color:var(--red)}
 .dialog-links a span{color:var(--red)}
+/* nav triggers: their arrows pick up the same red the anchors' arrows get */
+.resume-trigger span,.contact-trigger span{color:var(--red)}
+/* education + the red string motif, under the about copy */
+.about-extra{grid-column:2/-1;display:grid;grid-template-columns:1fr 1fr;gap:34px;border-top:1px solid var(--line);margin-top:34px;padding-top:30px}
+.about-sub{font:10px var(--mono);letter-spacing:.12em;color:var(--sage);margin:0 0 12px}
+.edu-list{margin:0}
+.edu-list div{display:grid;grid-template-columns:minmax(130px,auto) 1fr;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.edu-list dt{font:600 13px var(--sans);color:var(--ink);letter-spacing:-.01em}
+.edu-list dd{margin:0;font:11px/1.5 var(--mono);color:var(--muted)}
+.about-motif{font:14px/1.75 var(--sans);color:#59594f;margin:0}
+/* a note on how i work with genai */
+.about-genai{grid-column:2/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px 34px;border-top:1px solid var(--line);margin-top:34px;padding-top:30px}
+.about-genai h3{grid-column:1/-1}
+.about-genai p{font:14px/1.8 var(--sans);color:#59594f;margin:0}
+@media(max-width:760px){.about-extra,.about-genai{grid-template-columns:1fr;gap:26px;margin-top:24px}}

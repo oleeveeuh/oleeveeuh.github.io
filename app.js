@@ -9,6 +9,7 @@ let activeFilter = "all";
 
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const roleName = role => ({ai:"AI research & agents",data:"Data science",ml:"Machine learning"}[role] || role);
+const roleTags = project => (project.roleLabels || project.roles.map(role => roleName(role).toUpperCase())).join(" · ");
 const techMark = tech => {
   const name = tech.toLowerCase();
   if (name.includes("python")) return "Py";
@@ -59,7 +60,7 @@ function renderGallery() {
   gallery.innerHTML = visible.length ? visible.map((p, i) => `<button class="project-card" type="button" data-project="${esc(p.id)}" aria-label="Open ${esc(p.title)} project details">
     <span class="string-line" aria-hidden="true"></span><span class="clip" aria-hidden="true"></span>
     <span class="print"><span class="project-art">${p.previewImage ? `<img class="project-preview" src="${esc(p.previewImage)}" alt="${esc(p.previewAlt || "")}" loading="lazy">` : artSVG(p.visuals?.[0]?.type || "bars")}${p.previewImage ? "" : `<span class="art-label">${esc(p.year || "FIELD NOTE")}</span>`}</span>
-    <span class="print-caption"><span class="card-meta"><span class="role-tag">${esc(p.roleLabels?.[0] || roleName(p.roles[0]).toUpperCase())}</span><span class="open-mark" aria-hidden="true">↗</span></span>
+    <span class="print-caption"><span class="card-meta"><span class="role-tag">${esc(roleTags(p))}</span><span class="open-mark" aria-hidden="true">↗</span></span>
     <span class="print-title"><h3>${esc(p.title)}</h3></span><span class="print-desc"><p>${esc(p.subtitle)}</p></span></span></button>`).join("") : `<p class="empty-gallery">No projects in this section yet. Add a project in <code>projects.js</code>.</p>`;
   document.querySelector(".results-status").textContent = `${visible.length} ${visible.length === 1 ? "project" : "projects"} shown`;
   filters.forEach(button => {

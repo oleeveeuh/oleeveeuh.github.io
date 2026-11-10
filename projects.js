@@ -72,7 +72,7 @@ window.portfolioProjects = [
   },
   {
     id: "pd-drawings", title: "Classifying Parkinson's from drawings — subject-safe evaluation of a mixture-of-experts", subtitle: "102 'samples' that were 28 people — the data-leakage rebuild where deep-learning embeddings and mixture-of-experts both fail to beat logistic regression.",
-    roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
+    roles: ["ml"], roleLabels: ["MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis" },
       { label: "data audit (verified inventory)", href: "https://github.com/oleeveeuh/parkinsons-drawing-analysis/blob/main/docs/data_audit.md" },
@@ -172,7 +172,7 @@ window.portfolioProjects = [
   },
   {
     id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "LLM evaluation, prompt engineering, chain-of-thought, LoRA-DPO — 175 warehouse reviews and the rule that retired a self-graded 94.3%.",
-    roles: ["ai", "data", "ml"], roleLabels: ["AGENTIC AI", "DATA SCIENCE", "MACHINE LEARNING", "MLOPS"],
+    roles: ["ai", "ml"], roleLabels: ["AGENTIC AI", "MACHINE LEARNING", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/ReviewInsightAI" },
       { label: "live showcase", href: "https://oleeveeuh.github.io/ReviewInsightAI/" },
@@ -224,32 +224,5 @@ window.portfolioProjects = [
       { p: "What stands regardless: a harness where self-grading is structurally impossible, an offline test suite guarding the integrity properties, a dataset card that documents provenance gaps instead of hiding them, and the headline negative result — the 94.3% — kept on file as a case study. The project refuses to serve numbers it cannot defend, and the refusal is the feature. The models were never the story; the evaluation is." },
     ],
     result: "The takeaway: when the only affordable labeler is the same model family doing the predicting, the protocol is the product. The 94.3% headline died to a one-line rule — a prompt is never scored against its own labels — and the honest table that replaced it crowned the boring constrained prompt while chain-of-thought measured last. A LoRA-DPO run moved a 0.5B model +33.3 pp toward the labeler consensus on held-out reviews while leaving sentiment exactly unchanged — agreement, not accuracy, and the docs never let the two words blur. Everything in this entry traces to a committed artifact or a named local one, which is the actual deliverable: a system that can tell you what its numbers do and don't mean.",
-  },
-  {
-    id: "agent-evaluation", title: "Evaluating tool-using agents", subtitle: "A practical framework for measuring reliable task completion.",
-    roles: ["ai", "ml"], roleLabels: ["AI RESEARCH", "AGENTIC AI", "MACHINE LEARNING"],
-    technologies: ["Python", "LLM evaluation", "Jupyter"], year: "EXAMPLE PROJECT",
-    summary: "A starter case study for an agent evaluation project. Replace this with a brief, specific description of the question, your contribution, and the main takeaway.",
-    narration: "Describe the problem and why it matters. Explain the system or experiment you built, what you compared, and how you judged success. Keep the narrative focused on your own contribution and make the reasoning easy to follow.",
-    result: "Add a grounded finding here: a measured improvement, an important failure mode, or what the investigation changed about your approach. Avoid claiming impact you cannot substantiate.",
-    visuals: [{type:"agent",caption:"Example agent workflow diagram — replace with your own figure."},{type:"bars",caption:"Example evaluation comparison — replace with real results."}]
-  },
-  {
-    id: "community-trends", title: "Finding patterns in public data", subtitle: "Turning a messy dataset into a decision-ready view.",
-    roles: ["data"], roleLabels: ["DATA SCIENCE"],
-    technologies: ["Python", "Pandas", "SQL"], year: "EXAMPLE PROJECT",
-    summary: "A starter case study for a data science project. Replace this with the question you explored, the data you used, and the decision or insight the analysis supported.",
-    narration: "Walk through the data source, the main cleaning and analysis steps, and the choices that shaped the result. Mention limitations and uncertainty so a reader can understand what the evidence does and does not say.",
-    result: "Summarize the most useful finding and who it helped. Include a number only when you can explain how it was measured.",
-    visuals: [{type:"trend",caption:"Example trend visualization — replace axes and values with your own analysis."},{type:"distribution",caption:"Example distribution — use a chart that supports the story."}]
-  },
-  {
-    id: "model-study", title: "A careful model comparison", subtitle: "Testing where a lightweight model works—and where it doesn’t.",
-    roles: ["ml", "data"], roleLabels: ["MACHINE LEARNING", "DATA SCIENCE"],
-    technologies: ["scikit-learn", "Python", "Matplotlib"], year: "EXAMPLE PROJECT",
-    summary: "A starter case study for a machine learning project. Replace this with the task, the model contribution, and the most useful evaluation result.",
-    narration: "Explain the baseline, model choices, training and validation setup, and the metric that best reflects the real task. Describe tradeoffs such as latency, interpretability, or data quality when relevant.",
-    result: "State what the comparison taught you and what you would do next. A clear negative result or limitation can be as valuable as a performance gain.",
-    visuals: [{type:"bars",caption:"Example model metric comparison — replace with your evaluated models."},{type:"trend",caption:"Example validation curve — add the figure that best explains your result."}]
   }
 ];
