@@ -172,7 +172,7 @@ window.portfolioProjects = [
   },
   {
     id: "reviewinsight", title: "ReviewInsight AI — turning warehouse reviews into early-warning signals", subtitle: "LLM evaluation, prompt engineering, chain-of-thought, LoRA-DPO — 175 warehouse reviews and the rule that retired a self-graded 94.3%.",
-    roles: ["ai", "ml"], roleLabels: ["AGENTIC AI", "MACHINE LEARNING", "MLOPS"],
+    roles: ["ai"], roleLabels: ["AGENTIC AI", "MLOPS"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/ReviewInsightAI" },
       { label: "live showcase", href: "https://oleeveeuh.github.io/ReviewInsightAI/" },
