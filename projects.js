@@ -282,7 +282,7 @@ window.portfolioProjects = [
   },
   {
     id: "causal-retail", title: "Causal Retail", subtitle: "A randomized email experiment, an uplift-model refusal, and the audit that changed how the result could be claimed — 64,000 customers, a 10,000-recipient capacity, and a holdout that said no to both frozen learners.",
-    roles: ["data", "ml"], roleLabels: ["DATA SCIENCE", "MACHINE LEARNING"],
+    roles: ["data"], roleLabels: ["DATA SCIENCE"],
     links: [
       { label: "github repository", href: "https://github.com/oleeveeuh/causal-retail" },
     ],
