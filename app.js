@@ -29,6 +29,9 @@ const techMark = tech => {
   if (name.includes("mlflow")) return "mlf";
   if (name.includes("databricks")) return "dbx";
   if (name.includes("delta")) return "Δ";
+  if (name.includes("terraform")) return "tf";
+  if (name.includes("docker")) return "dk";
+  if (name.includes("locust")) return "lc";
   if (name.includes("pytorch")) return "pt";
   if (name.includes("tensorflow")) return "tf";
   if (name.includes("xgboost")) return "xgb";
